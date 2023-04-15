@@ -60,12 +60,13 @@ function speechThis(text) {
     document.getElementById(text).classList.remove("shadow");
   });
 }
-
-setTimeout(function () {
+alert(synth.getVoices());
+const getVoices = setTimeout(function () {
   voiceList.innerHTML = "";
   synth.getVoices().forEach(function (obj, index) {
     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
   });
+  alert(synth.getVoices());
 }, 5000);
 
 function speechText() {
