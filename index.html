@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Speech API</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h1>Speech Text Reader</h1>
+    <div class="toggle" id="toggle" onclick="closeBox()">Toggle Text Box</div>
+    <div class="gridContainer" id="gridContainer">
+        <div id="I'm THIRSTY" class="gridItem" onclick="speechThis(`I'm THIRSTY`)">
+            <img src="image/1.jpg" alt="">
+            <p class="title">I'm THIRSTY</p>
+        </div>
+        <div id="I'm HUNGRY" class="gridItem" onclick="speechThis(`I'm HUNGRY`)">
+            <img src="image/2.jpg" alt="">
+            <p class="title">I'm HUNGRY</p>
+        </div>
+        <div id="I'm TIRED" class="gridItem" onclick="speechThis(`I'm TIRED`)">
+            <img src="image/3.jpg" alt="">
+            <p class="title">I'm TIRED</p>
+        </div>
+        <div id="I'm HURT" class="gridItem" onclick="speechThis(`I'm HURT`)">
+            <img src="image/4.jpg" alt="">
+            <p class="title">I'm HURT</p>
+        </div>
+        <div id="I'm HAPPY" class="gridItem" onclick="speechThis(`I'm HAPPY`)">
+            <img src="image/5.jpg" alt="">
+            <p class="title">I'm HAPPY</p>
+        </div>
+        <div id="I'm ANGRY" class="gridItem" onclick="speechThis(`I'm ANGRY`)">
+            <img src="image/6.jpg" alt="">
+            <p class="title">I'm ANGRY</p>
+        </div>
+        <div id="I'm SAD" class="gridItem" onclick="speechThis(`I'm SAD`)">
+            <img src="image/7.jpg" alt="">
+            <p class="title">I'm SAD</p>
+        </div>
+        <div id="I'm SCARED" class="gridItem" onclick="speechThis(`I'm SCARED`)">
+            <img src="image/8.jpg" alt="">
+            <p class="title">I'm SCARED</p>
+        </div>
+        <div id="I WANT TO GO OUTSIDE" class="gridItem" onclick="speechThis(`I WANT TO GO OUTSIDE`)">
+            <img src="image/9.jpg" alt="">
+            <p class="title">I WANT TO GO OUTSIDE</p>
+        </div>
+        <div id="I WANT TO GO HOME" class="gridItem" onclick="speechThis(`I WANT TO GO HOME`)">
+            <img src="image/10.jpg" alt="">
+            <p class="title">I WANT TO GO HOME</p>
+        </div>
+        <div id="I WANT TO GO SCHOOLE" class="gridItem" onclick="speechThis(`I WANT TO GO SCHOOLE`)">
+            <img src="image/11.jpg" alt="">
+            <p class="title">I WANT TO GO SCHOOLE</p>
+        </div>
+        <div id="I WANT TO GO GRANDMAS" class="gridItem" onclick="speechThis(`I WANT TO GO GRANDMAS`)">
+            <img src="image/12.jpg" alt="">
+            <p class="title">I WANT TO GO GRANDMAS</p>
+        </div>
+    </div>
+    <div class="box hidden" id="box">
+        <h3>Choose Voice</h3>
+        <div class="close" onclick="closeBox()"><i class="fa fa-close"></i></div>
+        <select name="voices" id="voices" class="voices">
+            <option value="Alex en-US">Alex en-US</option>
+        </select>
+        <textarea id="text" placeholder="Enter text to read" rows="4" cols="50">Hello, my name is payam</textarea>
+        <div class="readBtn" id="readBtn" onclick="speechText()">Read Text</div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
