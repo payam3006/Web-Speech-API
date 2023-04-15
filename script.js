@@ -45,14 +45,12 @@ const box = document.getElementById("box");
 const voiceList = document.getElementById("voices");
 const textBox = document.getElementById("text");
 let VOICES = synth.getVoices();
+const utterThis = new SpeechSynthesisUtterance();
 
 voiceList.innerHTML = "";
 window.onload = () => {
   speechSynthesis.addEventListener("voiceschanged", () => {
     VOICES = speechSynthesis.getVoices();
-    // q(VOICES);
-    // alert(speechSynthesis.getVoices());
-
     VOICES.forEach(function (obj, index) {
       voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
     });
@@ -60,24 +58,21 @@ window.onload = () => {
 };
 
 //////////////////////////double CHECK!//////////////////
-// if (!VOICES) {
-//   setTimeout(() => {
-//     VOICES = synth.getVoices();
-//     // q(VOICES);
-//     // alert(VOICES);
-
-//     VOICES.forEach(function (obj, index) {
-//       voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
-//     });
-//   }, 1000);
-// }
+if (!VOICES) {
+  setTimeout(() => {
+    VOICES = synth.getVoices();
+    VOICES.forEach(function (obj, index) {
+      voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
+    });
+  }, 1000);
+}
 
 function closeBox() {
   box.classList.toggle("hidden");
 }
 
 function speechThis(text) {
-  const utterThis = new SpeechSynthesisUtterance(text);
+  utterThis.text = text;
   utterThis.voice = VOICES[voiceList.value];
   synth.speak(utterThis);
 
@@ -91,8 +86,7 @@ function speechThis(text) {
 
 function speechText() {
   const text = textBox.value;
-  alert(text);
-  const utterThis = new SpeechSynthesisUtterance(text);
+  utterThis.text = text;
   utterThis.voice = VOICES[voiceList.value];
   synth.speak(utterThis);
 }
