@@ -64,11 +64,13 @@ voiceList.innerHTML = "";
 //   });
 // });
 
+alert(synth.getVoices());
+
 setTimeout(() => {
-  VOICES = speechSynthesis.getVoices();
+  VOICES = synth.getVoices();
   q(VOICES);
   alert(VOICES);
-  alert(speechSynthesis.getVoices());
+  alert(synth.getVoices());
 
   VOICES.forEach(function (obj, index) {
     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
