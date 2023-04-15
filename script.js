@@ -66,7 +66,7 @@ setTimeout(function () {
   synth.getVoices().forEach(function (obj, index) {
     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
   });
-}, 1000);
+}, 5000);
 
 function speechText() {
   const text = textBox.value;
