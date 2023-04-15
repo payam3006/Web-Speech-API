@@ -44,7 +44,8 @@ const synth = window.speechSynthesis;
 const box = document.getElementById("box");
 const voiceList = document.getElementById("voices");
 const textBox = document.getElementById("text");
-let VOICES;
+let VOICES = synth.getVoices();
+
 voiceList.innerHTML = "";
 // window.onload = () => {
 //   VOICES = synth.getVoices();
@@ -64,18 +65,15 @@ voiceList.innerHTML = "";
 //   });
 // });
 
-alert(synth.getVoices());
-
 setTimeout(() => {
   VOICES = synth.getVoices();
   q(VOICES);
   alert(VOICES);
-  alert(synth.getVoices());
 
   VOICES.forEach(function (obj, index) {
     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
   });
-}, 5000);
+}, 1000);
 
 function closeBox() {
   box.classList.toggle("hidden");
