@@ -54,14 +54,25 @@ voiceList.innerHTML = "";
 //   });
 // };
 
-speechSynthesis.addEventListener("voiceschanged", () => {
+// speechSynthesis.addEventListener("voiceschanged", () => {
+//   VOICES = speechSynthesis.getVoices();
+//   q(VOICES);
+//   alert(speechSynthesis.getVoices());
+
+//   VOICES.forEach(function (obj, index) {
+//     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
+//   });
+// });
+
+setTimeout(() => {
   VOICES = speechSynthesis.getVoices();
   q(VOICES);
+  // alert(speechSynthesis.getVoices());
 
   VOICES.forEach(function (obj, index) {
     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
   });
-});
+}, 5000);
 
 function closeBox() {
   box.classList.toggle("hidden");
