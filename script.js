@@ -48,23 +48,27 @@ let VOICES = synth.getVoices();
 const utterThis = new SpeechSynthesisUtterance();
 
 voiceList.innerHTML = "";
-window.onload = () => {
-  speechSynthesis.addEventListener("voiceschanged", () => {
-    VOICES = speechSynthesis.getVoices();
-    VOICES.forEach(function (obj, index) {
-      voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
-    });
+
+const setVoices = () => {
+  VOICES = speechSynthesis.getVoices();
+  VOICES.forEach(function (obj, index) {
+    voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
   });
 };
 
+window.onload = () => {
+  if (!VOICES.length) {
+    setVoices();
+  }
+};
+if (!VOICES.length) {
+  speechSynthesis.addEventListener("voiceschanged", setVoices);
+}
+
 //////////////////////////double CHECK!//////////////////
-if (!VOICES) {
-  setTimeout(() => {
-    VOICES = synth.getVoices();
-    VOICES.forEach(function (obj, index) {
-      voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
-    });
-  }, 1000);
+if (!VOICES.length) {
+  alert(utterThis);
+  setTimeout(setVoices, 1000);
 }
 
 function closeBox() {
