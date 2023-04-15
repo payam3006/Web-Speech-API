@@ -67,8 +67,8 @@ voiceList.innerHTML = "";
 
 setTimeout(() => {
   VOICES = synth.getVoices();
-  q(VOICES);
-  alert(VOICES);
+  // q(VOICES);
+  // alert(VOICES);
 
   VOICES.forEach(function (obj, index) {
     voiceList.innerHTML += `<option value="${index}">${obj.name} ${obj.lang}</option>`;
